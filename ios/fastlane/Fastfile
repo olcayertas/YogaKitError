@@ -1,0 +1,17 @@
+ENV["LC_ALL"] = "en_US.UTF-8"
+ENV["LANG"] = "en_US.UTF-8"
+scheme = "YohaKitError"
+
+default_platform(:ios)
+
+platform :ios do
+  lane :sim do
+    archive_path = gym(
+      scheme: scheme,
+      skip_package_ipa: true,
+      destination: "generic/platform=iOS Simulator",
+      configuration: "Debug",
+      archive_path: "#{scheme}",
+    )
+  end
+end
